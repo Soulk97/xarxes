@@ -1,4 +1,4 @@
-void strTochar(String txt, char* c){
+/*void strTochar(String txt, char* c){
   if(WiFi.status() != WL_CONNECTED){
     int len = txt.length();
     Serial.println(len);
@@ -9,4 +9,4 @@ void strTochar(String txt, char* c){
       Serial.print(c[i]);
       }
     }
-  }
+  }*/

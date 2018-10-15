@@ -1,5 +1,5 @@
-void connectToWiFi(void){
-    if (WiFi.status() != Wl_CONNECTED){
+/*void connectToWiFi(void){
+    if (WiFi.status() != WL_CONNECTED){
         WiFi.begin(c_ssid, c_pwd);
         while (WiFi.status() != WL_CONNECTED){
             delay(1000);
@@ -30,4 +30,4 @@ void wifiNetworkSelection(void){
         Serial.println(password);
         delay(1000);
     }
-}
+}*/
