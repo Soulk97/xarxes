@@ -1,4 +1,15 @@
 #include "ESP8266WiFi.h"
+
+String incomingData;
+boolean TransmissioCompleta = false;
+
+/*
+  Com no ens funciona rebre les dades i pasar-les amb el strToChar
+  hem de posar el ssid i la contrasenya a aquestes variables
+*/
+char *c_ssid = "ssid";
+char *c_pwd = "password";
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -16,7 +27,7 @@ void connectToWiFi(String ssid, String pwd){
     
     if (WiFi.status() != WL_CONNECTED){
       int contador = 0;
-      char *c_ssid, *c_pwd;
+
       strTochar(ssid, c_ssid);
       strTochar(pwd, c_pwd);
       Serial.println("begin");
@@ -62,7 +73,7 @@ void strTochar(String txt, char* c){
     Serial.println(len);
     Serial.println("*************");
     c = (char*)malloc(len);
-    for(int i = 0; i<len-1; i++){
+    for(int i = 0; i<len; i++){
       c[i] = txt[i];
       Serial.print(c[i]);
       }
