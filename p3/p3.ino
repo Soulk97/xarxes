@@ -4,8 +4,8 @@ String incomingData;
 boolean TransmissioCompleta = false;
 
 // Wi-Fi Settings
-char* c_ssid = "equisde"; //ssid
-char* c_pwd = "12345678"; //password
+char* c_ssid; //ssid
+char* c_pwd; //password
 
 WiFiClient client;
 
@@ -49,6 +49,14 @@ void connectToWiFi(String ssid, String pwd){
       int contador = 0;
 
       Serial.println("begin");
+      Serial.println(ssid.length());
+      Serial.println(pwd.length());
+      
+      c_ssid = (char*) malloc(sizeof(char) * ssid.length());
+      c_pwd = (char*) malloc(sizeof(char) * pwd.length());
+
+      ssid.toCharArray(c_ssid, ssid.length());
+      pwd.toCharArray(c_pwd, pwd.length());
       WiFi.begin(c_ssid, c_pwd);
 
       while (WiFi.status() != WL_CONNECTED){
