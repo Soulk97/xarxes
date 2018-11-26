@@ -9,13 +9,6 @@ char* c_pwd; //password
 
 WiFiClient client;
 
-//ThingSpeak Settings
-const int channelID = 624733;
-String writeAPIKey = "5BFLIHGQD0DBD9NJ";
-const char* server = "api.thingspeak.com";
-const int postingInterval = 20 * 1000;
-
-//WiFi client
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -26,9 +19,8 @@ void setup() {
 
   scanWiFi();
   wifiNetworkSelection();
-  
-}
 
+}
 
 void connectToWiFi(String ssid, String pwd){    
     Serial.println("connectToWiFi");
@@ -61,7 +53,6 @@ void connectToWiFi(String ssid, String pwd){
 
 }
 
-
 void wifiNetworkSelection(void){
     String ssid, password;
     if(WiFi.status() != WL_CONNECTED){
@@ -80,7 +71,6 @@ void wifiNetworkSelection(void){
         connectToWiFi(ssid, password);
     }
 }
-
 
 void scanWiFi(void) {
   // put your main code here, to run repeatedly:
@@ -105,29 +95,10 @@ void scanWiFi(void) {
   delay(5000);
 }
 
-
-// P3 loop
-void loop(void){
-  if(client.connect(server, 80)){
-    // Measure Signal Strength (RSSI) of Wi-Fi connection
-    long rssi = WiFi.RSSI();
-    
-    // Construct API request body
-    String body = "field1=";
-    body+= String(rssi);
-
-    Serial.print("RSSI: ");
-    Serial.println(rssi);
-
-    client.println("POST /update HTTP/1.1");
-    client.println("Host: api.thingspeak.com");
-    client.println("User-Agent: ESP8266 (nothans)/1.0");
-    client.println("Connection: close");
-    client.println("X-THINGSPEAKAPIKEY: " + writeAPIKey);
-    client.println("Content-Type: application/x-www-form-urlencoded");
-    client.println("Content-Length: " + String(body.length()));
-    client.println("");
-    client.print(body);
+void loop() {
+  if(client.connect(c_ssid, 80)){
+    char value = client.read();
+    Serial.println(value);
     
   }
 }
