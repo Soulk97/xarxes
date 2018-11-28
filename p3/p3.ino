@@ -130,9 +130,9 @@ void loop(void){
     client.print(body);
 
     // This stops the sending of data to the server
-    client.stop()
+    client.stop();
 
     // This is the time the program will wait before sending again data to the server
-    delay(postingInterval)
+    delay(postingInterval);
   }
 }
