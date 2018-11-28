@@ -1,0 +1,14 @@
+Packet Tracer
+1
+El primer pas consisteix en afegir els ordinadors, fent clic a cada un podem accedir a tota la seva configuració i fins-hi-tot podem utilitzar-lo, navegar per internet, editar textos, enviar un email, etc.
+Hem d’entrar a la configuració, a la global canviarem el display name per PC1 a PC4, després entrarem a la configuració de FastEthernet0 per poder afegir la IP i la màscara, la ip serà 192.168.0.x on x és el número que hem assignat al display name del pc.
+2
+El segon pas consisteix en afegir un switch amb 4 entrades ethernet, al nostre cas hem afegit un PT-Switch.
+Ara hem d’afegir les connexions per això anem a la pestanya de connections i utilitzarem els cables Copper Straight-Through. Conectem el cable al port ethernet del pc y cada pc a cada un dels ports de ethernet del switch.
+
+3	
+Ara hem fer el ping accedim a un dels ordinadors, primer anirem a simulation per poder acedir a Event List i saber que passa en cada moment, després accedim a un ordinador i anem a l’apartat de Desktop, utilitzarem el command prompt y farem un ping a la ip de un altre ordinador connectat al switch.
+
+4
+En fer ping enviarà 32 bits de dades 4 vegades al switch, a l’event list podem veure com s’envien i es reben els paquets a tota la xarxa que hem creat.
+S’enviarà un ICMP y ARP del PC passant pel switch y a cada un dels ordinadors, després es comunicarà l’emissor amb el receptor a través del switch enviant les dades. Després es farà STP des del switch als ordinadors, després del pc emissor s’enviará ICMP al receptor passant pel switch y tornarà a l’emissor, després ICMP entre el switch i l’emissor. Seguirà enviant els paquets fins que acabi y després el switch anirà enviant paquets STP als pcs buscant dades que vulguin enviar.
