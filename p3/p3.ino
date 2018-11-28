@@ -128,6 +128,11 @@ void loop(void){
     client.println("Content-Length: " + String(body.length()));
     client.println("");
     client.print(body);
-    
+
+    // This stops the sending of data to the server
+    client.stop()
+
+    // This is the time the program will wait before sending again data to the server
+    delay(postingInterval)
   }
 }
