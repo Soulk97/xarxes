@@ -1,0 +1,7 @@
+Les dues xarxes funcionen per separat pero no hem pogut fer la connexió via cloud entre ambdues xarxes.
+
+La xarxa del router 1 utilitza subnetting variable amb IPs estàtiques, la xarxa del router 2 té un servidor DHCP per assignar les IP.
+
+La primera xarxa es compón del router, un switch y 3 ordinadors, el funcionament es com el de la xarxa de la pràctica anterior.
+
+La segona xarxa està composada del router, un switch, un servidor y 3 ordinadors. Está configurat perquè el servidor, que es DHCP faci l'assignació de les adreçes.
